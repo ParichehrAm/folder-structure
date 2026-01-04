@@ -1,4 +1,61 @@
 ```
+my-next-project/
+├─ pages/
+│   ├─ index.tsx                  # صفحه اصلی
+│   ├─ about.tsx                  # درباره پروژه
+│   ├─ cars/                      # صفحات فروش خودرو
+│   │   ├─ index.tsx              # لیست خودروها → /cars
+│   │   ├─ [id].tsx               # جزئیات خودرو → /cars/42
+│   │   └─ create.tsx             # صفحه ثبت خودرو → /cars/create
+│   └─ api/                       # API routes
+│       ├─ cars.ts                # API داخلی خودرو
+│       └─ users.ts               # API داخلی کاربران
+│
+├─ components/                    # کامپوننت‌های reusable
+│   ├─ ui/                        # کامپوننت عمومی
+│   │   ├─ Button.tsx
+│   │   ├─ Input.tsx
+│   │   └─ Card.tsx
+│   ├─ layout/                    # Header / Footer / PageWrapper
+│   │   ├─ Header.tsx
+│   │   └─ Footer.tsx
+│   └─ cars/                      # کامپوننت مربوط به feature خودرو
+│       ├─ CarCard.tsx
+│       ├─ CarList.tsx
+│       ├─ CarFilters.tsx
+│       └─ CarGallery.tsx
+│
+├─ features/                      # منطق feature-based
+│   ├─ cars/
+│   │   ├─ cars.api.ts            # fetch cars
+│   │   ├─ cars.service.ts        # business logic خودرو
+│   │   └─ cars.types.ts          # تایپ خودرو
+│   └─ users/
+│       ├─ auth.api.ts            # login/logout
+│       ├─ auth.service.ts
+│       └─ auth.types.ts
+│
+├─ hooks/
+│   ├─ useCars.ts                 # hook مخصوص fetch خودروها
+│   └─ useAuth.ts
+│
+├─ lib/
+│   ├─ axios.ts                   # axios instance
+│   └─ helpers.ts                 # توابع کمکی عمومی
+│
+├─ styles/
+│   └─ globals.css
+│
+├─ docs/                           # مستندات پروژه
+│   ├─ README.md
+│   ├─ setup.md
+│   ├─ architecture.md
+│   └─ guidelines.md
+│
+└─ README.md                       # روت پروژه
+
+
+
 src/
 ├─ pages/
 │   ├─ cars/
@@ -135,3 +192,4 @@ my-next-project/
 
 
 ```
+
