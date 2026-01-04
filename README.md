@@ -55,141 +55,64 @@ my-next-project/
 └─ README.md                       # روت پروژه
 
 
+# ساختار پروژه BotoFood
 
-src/
-├─ pages/
-│   ├─ cars/
-│   │   ├─ index.tsx        → /cars
-│   │   ├─ [id].tsx         → /cars/42
-│   │   └─ create.tsx       → /cars/create
-│   │
-│   └─ profile/
-│       └─ cars.tsx         → /profile/cars
+components/                       # تمام کامپوننت‌های reusable
+├─ ui/                             # کامپوننت عمومی و قابل استفاده در کل پروژه
+│   ├─ Button.tsx                  # دکمه استاندارد
+│   ├─ Input.tsx                   # فیلد ورودی
+│   └─ Card.tsx                    # کارت اطلاعات (مثلاً محصول یا سفارش)
 │
-├─ components/
-│   ├─ ui/
-│   │   ├─ Button.tsx
-│   │   ├─ Input.tsx
-│   │   └─ Select.tsx
-│   │
-│   ├─ layout/
-│   │   ├─ Header.tsx
-│   │   └─ PageWrapper.tsx
-│   │
-│   └─ cars/
-│       ├─ CarCard.tsx
-│       ├─ CarList.tsx
-│       ├─ CarFilters.tsx
-│       ├─ CarGallery.tsx
-│       └─ CarSpecs.tsx
+├─ layout/                         # کامپوننت‌های layout ثابت صفحات
+│   ├─ Header.tsx                  # هدر سایت
+│   └─ Footer.tsx                  # فوتر سایت
 │
-├─ features/
-│   └─ cars/
-│       ├─ cars.api.ts
-│       ├─ cars.service.ts
-│       ├─ cars.types.ts
+├─ cart/                            # کامپوننت‌های مربوط به سبد خرید
+│   ├─ CartItem.tsx                # نمایش آیتم سبد خرید
+│   ├─ CartList.tsx                # لیست همه آیتم‌های سبد
+│   └─ CartSummary.tsx             # جمع کل و خلاصه سبد خرید
 │
-├─ hooks/
-│   └─ useCars.ts
-│
-├─ lib/
-│   └─ axios.ts
+└─ product/                         # کامپوننت‌های مربوط به محصولات
+    ├─ ProductCard.tsx             # کارت هر محصول
+    ├─ ProductList.tsx             # لیست محصولات
+    └─ ProductDetail.tsx           # جزئیات محصول
 
+pages/                              # صفحات سایت (Page Router)
+├─ index.tsx                        # صفحه اصلی
+├─ about.tsx                        # درباره پروژه
+├─ cart.tsx                         # صفحه سبد خرید
+├─ products/                        # صفحات محصولات
+│   ├─ index.tsx                    # لیست محصولات → /products
+│   └─ [id].tsx                     # جزئیات محصول → /products/42
+└─ api/                             # API routes داخلی
+    ├─ cart.ts                      # API مربوط به سبد خرید
+    └─ products.ts                  # API مربوط به محصولات
 
-‍‍‍‍‍
-my-next-project/
-├─ pages/
-│   ├─ index.tsx
-│   ├─ about.tsx
-│   ├─ docs/
-│   │   ├─ index.tsx
-│   │   ├─ [docId].tsx
-│   │   └─ tutorials/
-│   │       ├─ index.tsx
-│   │       └─ [tutorialId].tsx
-│   └─ api/
-│       ├─ docs/
-│       │   └─ index.ts
-│       └─ users/
-│           └─ auth.ts
-├─ components/
-│   ├─ ui/
-│   │   ├─ Button.tsx
-│   │   ├─ Card.tsx
-│   │   └─ Modal.tsx
-│   ├─ layout/
-│   │   ├─ Header.tsx
-│   │   └─ Footer.tsx
-│   └─ docs/
-│       ├─ DocCard.tsx
-│       ├─ DocList.tsx
-│       └─ DocViewer.tsx
-├─ features/
-│   ├─ docs/
-│   │   ├─ docs.api.ts
-│   │   ├─ docs.service.ts
-│   │   └─ docs.types.ts
-│   └─ users/
-│       ├─ auth.api.ts
-│       ├─ auth.service.ts
-│       └─ auth.types.ts
-├─ hooks/
-│   ├─ useDocs.ts
-│   └─ useAuth.ts
-├─ lib/
-│   ├─ axios.ts
-│   └─ helpers.ts
-├─ styles/
-│   └─ globals.css
-├─ docs/                     # مستندات کامل پروژه
-│   ├─ README.md
-│   ├─ setup.md
-│   ├─ architecture.md
-│   └─ guidelines.md
-└─ README.md                 # روت پروژه
+features/                           # منطق feature-based (business logic)
+├─ cart/
+│   ├─ cart.api.ts                  # API calls برای سبد خرید
+│   ├─ cart.service.ts              # Business logic سبد خرید
+│   └─ cart.types.ts                # تایپ‌ها و interface های سبد خرید
+│
+└─ products/
+    ├─ products.api.ts              # API calls برای محصولات
+    ├─ products.service.ts          # Business logic محصولات
+    └─ products.types.ts            # تایپ‌ها و interface های محصول
 
+hooks/                               # Custom React hooks
+├─ useCart.ts                        # مدیریت state سبد خرید
+└─ useProducts.ts                    # مدیریت state محصولات
 
+lib/                                 # ابزارهای کمکی
+├─ axios.ts                           # axios instance
+└─ helpers.ts                         # توابع کمکی عمومی
 
-my-next-project/
-├─ pages/
-│   ├─ index.tsx               # صفحه اصلی
-│   ├─ about.tsx               # درباره
-│   ├─ docs/                   # صفحات مستندات
-│   │   ├─ index.tsx           # لیست مستندات
-│   │   └─ [docId].tsx         # جزئیات هر مستند
-│   └─ api/                    # API routes
-│       └─ docs.ts
-│
-├─ components/
-│   ├─ ui/                     # کامپوننت های عمومی
-│   │   ├─ Button.tsx
-│   │   └─ Card.tsx
-│   ├─ layout/                 # Header / Footer / Sidebar
-│   └─ docs/                   # کامپوننت های مرتبط با مستندات
-│       ├─ DocCard.tsx
-│       ├─ DocList.tsx
-│       └─ DocViewer.tsx
-│
-├─ features/
-│   └─ docs/
-│       ├─ docs.api.ts         # fetch docs
-│       ├─ docs.service.ts     # business logic
-│       └─ docs.types.ts       # تایپ‌ها
-│
-├─ hooks/
-│   └─ useDocs.ts              # hook برای دریافت مستندات
-│
-├─ lib/
-│   └─ axios.ts
-│
-├─ styles/
-│   └─ globals.css
-│
-├─ docs/                       # فایل های مستندات اصلی پروژه
-│   └─ README.md
-│
-└─ README.md                   # فایل روت پروژه
+styles/
+└─ globals.css                        # CSS کلی پروژه
 
+public/                               # فایل‌های static (عکس، لوگو و ...)
+README.md                              # معرفی پروژه و راهنمای سریع
 
 ```
+
 
